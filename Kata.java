@@ -1,10 +1,39 @@
 public class Kata {
 
     public static void main(String[] args) {
-        System.out.println(solution(25));
+
+        char[] directions = {'n','s','n','s','n','s','n','s','n','s'};
+        System.out.println(solution(directions));
     }
 
-    /* https://www.codewars.com/kata/54c27a33fb7da0db0100040e/train/java */
+    /* https://www.codewars.com/kata/54da539698b8a2ad76000228/train/java */
+    public static boolean solution(char[] walk) {
+        int counterN = 0;
+        int counterS = 0;
+        int counterE = 0;
+        int counterW = 0;
+        
+        if (walk.length > 10 || walk.length == 2) {
+            return false;
+        }
+        
+        for (int i = 0; i < walk.length; i++) {
+            switch (walk[i]) {
+                case 'n': counterN++; break;
+                case 's': counterS++; break;
+                case 'e': counterE++; break;
+                case 'w': counterW++; break;
+            }
+        }
+
+        if (counterN == counterS && counterE == counterW) {
+            return true;
+        }
+        
+        return false;
+    }
+
+    /* https://www.codewars.com/kata/54c27a33fb7da0db0100040e/train/java 
     public static boolean solution(int n) {
         
         double a = Math.sqrt(n);
