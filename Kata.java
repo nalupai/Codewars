@@ -1,10 +1,28 @@
 public class Kata {
 
     public static void main(String[] args) {
-        System.out.println(solution("The quick brown fox jumps over a lazy dog."));
+        System.out.println(solution(25));
     }
 
-    /* https://www.codewars.com/kata/545cedaa9943f7fe7b000048/train/java */
+    /* https://www.codewars.com/kata/54c27a33fb7da0db0100040e/train/java */
+    public static boolean solution(int n) {
+        
+        double a = Math.sqrt(n);
+        int b = (int)Math.sqrt(n);
+        
+        if (a == b) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /*
+    public static boolean solution(int n) {
+        return Math.sqrt(n) == (int)Math.sqrt(n) ? true : false;
+    }*/
+
+    /* https://www.codewars.com/kata/545cedaa9943f7fe7b000048/train/java 
     public static boolean solution(String sentence) {
         if ((sentence.contains("A") || sentence.contains("a")) &&
             (sentence.contains("B") || sentence.contains("b")) &&
