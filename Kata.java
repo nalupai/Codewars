@@ -2,11 +2,101 @@ public class Kata {
 
     public static void main(String[] args) {
 
-        char[] directions = {'n','s','n','s','n','s','n','s','n','s'};
-        System.out.println(solution(directions));
+        long n = 999L;
+        System.out.println(persistence(n));
+    }
+    
+    /* https://www.codewars.com/kata/55bf01e5a717a0d57e0000ec/train/java */
+    public static int persistence(long n) { //999
+
+        if (n < 10) {
+            return 0;
+        }
+
+        int counter = 1;
+        
+        //long -> String (for length check)
+        String nStr = String.valueOf(n); //"999"
+        //length check
+        long length = nStr.length(); //3
+
+        String highestFactor = "1";
+        for (int i = 0; i < length - 1; i++) {
+            highestFactor = highestFactor + "0";
+        }
+        long factor = Long.parseLong(highestFactor); //100
+
+        long m = 1L;
+        
+        for(int i = 0; i < length; i++) { //3 times
+            long digit = n / factor; //999 / 100 =  9
+            m = m * digit; //1 * 9
+            n = n - (digit * factor); //999 - 900 = 99
+            String factorStr = String.valueOf(factor); //"100"
+            if (factorStr.length() > 2) {
+                factorStr = factorStr.substring(0, factorStr.length() - 1); // "10"
+                factor = Long.parseLong(factorStr); //10
+            } else {
+                factor = 1L;
+            }
+        }
+
+        if (String.valueOf(m).length() > 2) {
+            counter = counter + persistence(m);
+        } else {
+            while (String.valueOf(m).length() == 2) {
+            String resultStr = String.valueOf(m);
+            m = Long.parseLong(resultStr.substring(0, 1)) * Long.parseLong(resultStr.substring(1));
+            counter++;
+            }
+        }
+
+        return counter;
     }
 
-    /* https://www.codewars.com/kata/54da539698b8a2ad76000228/train/java */
+    //999 --> 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, 1*2 = 2
+    /*public static long persistence(long n) { //999
+
+        String nStr = String.valueOf(n); //"999"
+        long length = nStr.length(); //3
+
+        String highestFactor = "1";
+        for (int i = 0; i < length - 1; i++) {
+            highestFactor = highestFactor + "0";
+        }
+        long factor = Long.parseLong(highestFactor); //100
+
+        long m = 1L;
+
+        for(int i = 0; i < length; i++) { //3
+            long digit = n / factor; //999 / 100 =  9
+            m = m * digit; //1 * 9
+            n = n - (digit * factor); //999 - 900 = 99
+            String factorStr = String.valueOf(factor); //"100"
+            if (factorStr.length() > 2) {
+                factorStr = factorStr.substring(0, factorStr.length() - 1); //"10"
+                factor = Long.parseLong(factorStr); //10
+            } else {
+                factor = 1L;
+            }
+        }
+
+        long result;
+
+        if (String.valueOf(m).length() > 2) {
+            result = persistence(m);
+        } else {
+            while (String.valueOf(m).length() == 2) {
+                String resultStr = String.valueOf(m);
+                m = Long.parseLong(resultStr.substring(0, 1)) * Long.parseLong(resultStr.substring(1));
+            }
+            result = m;
+        }
+
+        return result;
+    }*/
+
+    /* https://www.codewars.com/kata/54da539698b8a2ad76000228/train/java 
     public static boolean solution(char[] walk) {
         int counterN = 0;
         int counterS = 0;
