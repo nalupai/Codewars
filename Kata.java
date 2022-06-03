@@ -2,10 +2,28 @@ public class Kata {
 
     public static void main(String[] args) {
 
-        System.out.println(solution("oxf", "xof"));
+        System.out.println(solution("ZpglnRxqenU"));
     }
 
-    /* https://www.codewars.com/kata/5656b6906de340bd1b0000ac/train/java */
+    /* https://www.codewars.com/kata/5667e8f4e3f572a8f2000039/train/java */
+    public static String solution(String s) {
+        String result = "";
+      
+        for(int i = 0; i < s.length(); i++) {
+            int j = i;
+            String firstLetter = "" + s.charAt(i);
+            result = result + firstLetter.toUpperCase();
+            while (j >= 1) {
+            result = result + firstLetter.toLowerCase();
+            j--;
+        }
+        result = result + "-";
+      }
+
+      return result.substring(0, result.length()-1);
+    }
+
+    /* https://www.codewars.com/kata/5656b6906de340bd1b0000ac/train/java 
     public static String solution(String s1, String s2) {
 
         String allLetters = s1 + s2;
