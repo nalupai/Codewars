@@ -2,11 +2,49 @@ public class Kata {
 
     public static void main(String[] args) {
 
-        long n = 999L;
-        System.out.println(persistence(n));
+        System.out.println(solution("oxf", "xof"));
     }
-    
-    /* https://www.codewars.com/kata/55bf01e5a717a0d57e0000ec/train/java */
+
+    /* https://www.codewars.com/kata/5656b6906de340bd1b0000ac/train/java */
+    public static String solution(String s1, String s2) {
+
+        String allLetters = s1 + s2;
+        String uniqueLetters = "";
+
+        for(int i = 0; i < allLetters.length(); i++) {
+            char letter = allLetters.charAt(i);
+            if (uniqueLetters.contains(letter + "")) {
+                continue;
+            } else {
+                uniqueLetters = uniqueLetters + allLetters.charAt(i);
+            }
+        }
+
+        char[] letters = new char[uniqueLetters.length()];
+
+        for(int i = 0; i < letters.length; i++) {
+            letters[i] = uniqueLetters.charAt(i);
+        }
+
+        for(int i = 0; i < letters.length; i++) {
+            for(int j = 0; j < letters.length - 1; j++) {
+                if (letters[j] < letters[j+1]) {
+                    continue;
+                } else {
+                    char temp = letters[j];
+                    letters[j] = letters[j+1];
+                    letters[j+1] = temp;
+                }
+                if (j == letters.length - 1) {
+                    letters[j+1] = letters[j+1];
+                }
+            }
+        }
+
+        return String.valueOf(letters);
+    }
+
+    /* https://www.codewars.com/kata/55bf01e5a717a0d57e0000ec/train/java 
     public static int persistence(long n) { //999
 
         if (n < 10) {
