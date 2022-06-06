@@ -2,10 +2,27 @@ public class Kata {
 
     public static void main(String[] args) {
 
-        System.out.println(solution("ZpglnRxqenU"));
+        System.out.println(solution8("This is my string !"));
     }
 
-    /* https://www.codewars.com/kata/5667e8f4e3f572a8f2000039/train/java */
+    /* https://www.codewars.com/kata/520b9d2ad5c005041100000f/train/java */
+    public static String solution8(String str) {
+        String[] words = str.split(" ");
+        String result = "";
+
+        for(String word : words) {
+            if (word.equals("!") || word.equals("?")) {
+                result = result + word;
+                continue;
+            }
+            word = word.substring(1) + word.charAt(0) + "ay";
+            result = result + word + " ";
+        }
+
+        return result.trim();
+    }
+
+    /* https://www.codewars.com/kata/5667e8f4e3f572a8f2000039/train/java 
     public static String solution(String s) {
         String result = "";
       
