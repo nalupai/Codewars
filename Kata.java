@@ -2,10 +2,60 @@ public class Kata {
 
     public static void main(String[] args) {
 
-        System.out.println(solution8("This is my string !"));
+        System.out.println(solution9(9));
     }
 
-    /* https://www.codewars.com/kata/520b9d2ad5c005041100000f/train/java */
+    /* https://www.codewars.com/kata/5503013e34137eeeaa001648/train/java */
+    public static String solution9(int n) {
+
+        if (n <= 0 || n % 2 == 0) {
+            return null;
+        }
+
+        String result = "";
+        String spaces = "";
+        String stars = "*";
+
+        int i = n / 2 + 1;
+        while(i > 0) {
+
+            for(int j = i; j > 1; j--) {
+                spaces = spaces + " ";
+            }
+
+            result = result + spaces + stars + "\n";
+
+            spaces = "";
+            stars = stars + "**";
+            i--;
+        }
+
+        stars = "";
+
+        for(int s = 0; s < n; s++) {
+            stars = stars + "*";
+        }
+
+        i = 1;
+        while(i <= n / 2) {
+
+            spaces = spaces + " ";
+
+            if (stars.length() > 3) {
+                stars = stars.substring(0, stars.length() - 2);
+            } else {
+                stars = "*";
+            }
+
+            result = result + spaces + stars + "\n";
+            i++;
+        }
+
+        return result;
+    }
+
+
+    /* https://www.codewars.com/kata/520b9d2ad5c005041100000f/train/java 
     public static String solution8(String str) {
         String[] words = str.split(" ");
         String result = "";
