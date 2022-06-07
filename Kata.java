@@ -2,10 +2,21 @@ public class Kata {
 
     public static void main(String[] args) {
 
-        System.out.println(solution9(9));
+        System.out.println(binToDecimal("1"));
+    }
+    
+    /* https://www.codewars.com/kata/57a5c31ce298a7e6b7000334/train/java */
+    public static int binToDecimal(String inp) {
+        int result = 0;
+        int p = 0;
+        for (int i = inp.length() - 1; i >= 0; i--) {
+            result = result + Character.getNumericValue(inp.charAt(i)) * (int)Math.pow(2, p);
+            p++;
+        }
+        return result;
     }
 
-    /* https://www.codewars.com/kata/5503013e34137eeeaa001648/train/java */
+    /* https://www.codewars.com/kata/5503013e34137eeeaa001648/train/java 
     public static String solution9(int n) {
 
         if (n <= 0 || n % 2 == 0) {
@@ -53,7 +64,6 @@ public class Kata {
 
         return result;
     }
-
 
     /* https://www.codewars.com/kata/520b9d2ad5c005041100000f/train/java 
     public static String solution8(String str) {
@@ -157,7 +167,7 @@ public class Kata {
             n = n - (digit * factor); //999 - 900 = 99
             String factorStr = String.valueOf(factor); //"100"
             if (factorStr.length() > 2) {
-                factorStr = factorStr.substring(0, factorStr.length() - 1); // "10"
+                factorStr = factorStr.substring(0, factorStr.length() - 1); //"10"
                 factor = Long.parseLong(factorStr); //10
             } else {
                 factor = 1L;
