@@ -2,10 +2,32 @@ public class Kata {
 
     public static void main(String[] args) {
 
-        System.out.println(binToDecimal("1"));
+        System.out.println(towerBuilder(5));
+    }
+
+    /* https://www.codewars.com/kata/576757b1df89ecf5bd00073b/train/java */
+    public static String[] towerBuilder(int nFloors) {
+
+        String[] result = new String[nFloors];
+        String spaces = "";
+        String stars = "*";
+
+        for(int i = 0; i < nFloors; i++) {
+
+            for(int j = 0; j < nFloors - (i + 1); j++) {
+                spaces = spaces + " ";
+            }
+
+            result[i] = spaces + stars + spaces;
+
+            spaces = "";
+            stars = stars + "**";
+        }
+
+        return result;
     }
     
-    /* https://www.codewars.com/kata/57a5c31ce298a7e6b7000334/train/java */
+    /* https://www.codewars.com/kata/57a5c31ce298a7e6b7000334/train/java 
     public static int binToDecimal(String inp) {
         int result = 0;
         int p = 0;
