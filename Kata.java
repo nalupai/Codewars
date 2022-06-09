@@ -2,10 +2,32 @@ public class Kata {
 
     public static void main(String[] args) {
 
-        System.out.println(towerBuilder(5));
+        System.out.println(validatePin("1234"));
     }
 
-    /* https://www.codewars.com/kata/576757b1df89ecf5bd00073b/train/java */
+/* https://www.codewars.com/kata/55f8a9c06c018a0d6e000132/train/java */
+    public static boolean validatePin(String pin) {
+
+        try {
+          int check = Integer.parseInt(pin);
+        } catch (Exception e) {
+          return false;
+        }
+
+        if (pin.contains("-") || pin.contains(".") || pin.contains("+")) {
+            return false;
+        }
+        
+        int pinLength = pin.length();
+        
+        return (pinLength == 4 || pinLength == 6) ? true : false;
+    }
+
+    /*public static boolean validatePin(String pin) {
+    return pin.matches("\\d{4}|\\d{6}");
+    }*/
+
+    /* https://www.codewars.com/kata/576757b1df89ecf5bd00073b/train/java 
     public static String[] towerBuilder(int nFloors) {
 
         String[] result = new String[nFloors];
