@@ -1,11 +1,24 @@
+import javax.swing.text.html.HTMLDocument.RunElement;
+
 public class Kata {
 
     public static void main(String[] args) {
 
-        System.out.println(getXO("XOXO"));
+        System.out.println(solution15("145"));
     }
 
-    /* https://www.codewars.com/kata/55908aad6620c066bc00002a/train/java */
+    /* https://www.codewars.com/kata/585b1fafe08bae9988000314/train/java */
+    public static String solution15(String digits) {
+        String result = "";
+        for(int i = 0; i  < digits.length(); i++) {
+            for(int j = 0; j < Integer.parseInt("" + digits.charAt(i)); j++) {
+                result += digits.charAt(i);
+            }
+        }
+        return result;
+    }
+
+    /* https://www.codewars.com/kata/55908aad6620c066bc00002a/train/java 
     public static boolean getXO(String str) {
         int countX = 0;
         int countO = 0;
