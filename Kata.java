@@ -1,13 +1,27 @@
-import javax.swing.text.html.HTMLDocument.RunElement;
-
 public class Kata {
 
     public static void main(String[] args) {
 
-        System.out.println(solution15("145"));
+        System.out.println(fourSeven(4));
     }
 
-    /* https://www.codewars.com/kata/585b1fafe08bae9988000314/train/java */
+    /* https://www.codewars.com/kata/5ff50f64c0afc50008861bf0/train/java */
+    public static int fourSeven(int n) {
+        int check;
+        try {
+            check = 1 / (n - 4);
+            try {
+                check = 1 / (n - 7);
+                return 0;
+            } catch (ArithmeticException e) {
+                return 4;
+            }
+        } catch (ArithmeticException e) {
+            return 7;
+        }
+    }
+
+    /* https://www.codewars.com/kata/585b1fafe08bae9988000314/train/java 
     public static String solution15(String digits) {
         String result = "";
         for(int i = 0; i  < digits.length(); i++) {
