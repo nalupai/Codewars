@@ -2,10 +2,31 @@ public class Kata {
 
     public static void main(String[] args) {
 
-        System.out.println(validatePin("1234"));
+        int[] array = {1, 2, 5, 4, 5, 2};
+        System.out.println(solution13(array));
+    }
+    
+    /* https://www.codewars.com/kata/5c55ad8c9d76d41a62b4ede3/train/java */
+    public static int solution13(int[] array) {
+        int numOfPairs = 0;
+        String check = "";
+        int result = 0;
+        for (int n : array) {
+            if (!check.contains("" + n + " ")) {
+                for (int i = 0; i < array.length; i++) {
+                    if (array[i] == n) {
+                        numOfPairs++;
+                    }
+                }
+            result += numOfPairs / 2;
+            numOfPairs = 0;
+            check += n + " ";
+            }
+        }
+        return result;
     }
 
-/* https://www.codewars.com/kata/55f8a9c06c018a0d6e000132/train/java */
+    /* https://www.codewars.com/kata/55f8a9c06c018a0d6e000132/train/java 
     public static boolean validatePin(String pin) {
 
         try {
