@@ -2,11 +2,25 @@ public class Kata {
 
     public static void main(String[] args) {
 
-        int[] array = {1, 2, 5, 4, 5, 2};
-        System.out.println(solution13(array));
+        System.out.println(getXO("XOXO"));
+    }
+
+    /* https://www.codewars.com/kata/55908aad6620c066bc00002a/train/java */
+    public static boolean getXO(String str) {
+        int countX = 0;
+        int countO = 0;
+        for(int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == 'x' || str.charAt(i) == 'X') {
+                countX++;
+            }
+            if (str.charAt(i) == 'o' || str.charAt(i) == 'O') {
+                countO++;
+            }
+        }
+        return countX == countO;
     }
     
-    /* https://www.codewars.com/kata/5c55ad8c9d76d41a62b4ede3/train/java */
+    /* https://www.codewars.com/kata/5c55ad8c9d76d41a62b4ede3/train/java 
     public static int solution13(int[] array) {
         int numOfPairs = 0;
         String check = "";
