@@ -2,10 +2,24 @@ public class Kata {
 
     public static void main(String[] args) {
 
-        System.out.println(solution17("hello world"));
+        System.out.println(solution18("ATCG"));
     }
 
-    /* https://www.codewars.com/kata/57f8ee485cae443c4d000127/train/java */
+    /* https://www.codewars.com/kata/554e4a2f232cdd87d9000038/train/java */
+    public static String solution18(String dna) {
+        String result = "";
+        for(int i = 0; i < dna.length(); i++) {
+            switch(dna.charAt(i)) {
+                case 'A': result += 'T'; break;
+                case 'T': result += 'A'; break;
+                case 'C': result += 'G'; break;
+                case 'G': result += 'C'; break;
+            }
+        }
+        return result;
+    }
+
+    /* https://www.codewars.com/kata/57f8ee485cae443c4d000127/train/java 
     public static String solution17(String str) {
         String result = "";
         for(int i = 0; i < str.length(); i++) {
