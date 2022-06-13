@@ -2,10 +2,19 @@ public class Kata {
 
     public static void main(String[] args) {
 
-        System.out.println(fourSeven(4));
+        System.out.println(solution17("hello world"));
     }
 
-    /* https://www.codewars.com/kata/5ff50f64c0afc50008861bf0/train/java */
+    /* https://www.codewars.com/kata/57f8ee485cae443c4d000127/train/java */
+    public static String solution17(String str) {
+        String result = "";
+        for(int i = 0; i < str.length(); i++) {
+            result += str.charAt(i) + " ";
+        }
+        return result.trim();
+    }
+
+    /* https://www.codewars.com/kata/5ff50f64c0afc50008861bf0/train/java 
     public static int fourSeven(int n) {
         int check;
         try {
@@ -86,7 +95,7 @@ public class Kata {
     }
 
     /*public static boolean validatePin(String pin) {
-    return pin.matches("\\d{4}|\\d{6}");
+        return pin.matches("\\d{4}|\\d{6}");
     }*/
 
     /* https://www.codewars.com/kata/576757b1df89ecf5bd00073b/train/java 
