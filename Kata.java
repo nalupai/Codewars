@@ -1,11 +1,21 @@
 public class Kata {
 
     public static void main(String[] args) {
-
-        System.out.println(solution18("ATCG"));
+        
+        System.out.println(solution19("Hello!"));
+    }
+    
+    /* https://www.codewars.com/kata/56b1f01c247c01db92000076/train/java */
+    public static String solution19(String s) {
+        String result = "";
+        for (int i = 0; i < s.length(); i++) {
+            result += s.charAt(i);
+            result += s.charAt(i);
+        }
+        return result;
     }
 
-    /* https://www.codewars.com/kata/554e4a2f232cdd87d9000038/train/java */
+    /* https://www.codewars.com/kata/554e4a2f232cdd87d9000038/train/java 
     public static String solution18(String dna) {
         String result = "";
         for(int i = 0; i < dna.length(); i++) {
