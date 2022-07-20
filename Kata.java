@@ -2,10 +2,66 @@ public class Kata {
 
     public static void main(String[] args) {
         
-        System.out.println(solution19("Hello!"));
+        System.out.println(validParentheses(")(xoxoxoxo))XOXO"));
     }
-    
-    /* https://www.codewars.com/kata/56b1f01c247c01db92000076/train/java */
+
+    /* https://www.codewars.com/kata/52774a314c2333f0a7000688/train/java */
+    public static boolean validParentheses(String parens) {
+        
+        String onlyParens = "";
+        String result = "";
+
+        for (int i = 0; i < parens.length(); i++) {
+            if (parens.charAt(i) == '(' || parens.charAt(i) == ')') {
+                onlyParens = onlyParens + parens.charAt(i);
+            }
+        }
+        //System.out.println(onlyParens);
+
+        if (onlyParens == "") {
+            return true;
+        }
+
+        if (onlyParens.charAt(onlyParens.length() - 1) == '(' || onlyParens.charAt(0) == ')') {
+            return false;
+        }
+
+        char[] parensCheck = new char[onlyParens.length()];
+
+        for (int i = 0; i < onlyParens.length(); i++) {
+            parensCheck[i] = onlyParens.charAt(i);
+            //System.out.println(parensCheck[i]);
+        }
+
+        int maxIndex = 0;
+
+        for (int i = 0; i < onlyParens.length(); i++) {
+            if (parensCheck[i] == '(') {
+                maxIndex = i;
+            }
+        }
+        //System.out.println(maxIndex);
+
+        if (parensCheck[maxIndex + 1] == ')') {
+            parensCheck[maxIndex] = 'X';
+            parensCheck[maxIndex + 1] = 'X';
+
+            for (int i = 0; i < onlyParens.length(); i++) {
+                //System.out.println(parensCheck[i]);
+            }
+
+            for (int i = 0; i < onlyParens.length(); i++) {
+                result += parensCheck[i];
+            }
+            //System.out.println(result);
+
+            return validParentheses(result);
+        }
+
+        return true;
+    }
+
+    /* https://www.codewars.com/kata/56b1f01c247c01db92000076/train/java 
     public static String solution19(String s) {
         String result = "";
         for (int i = 0; i < s.length(); i++) {
