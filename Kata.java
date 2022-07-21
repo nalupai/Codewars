@@ -1,13 +1,26 @@
 public class Kata {
 
     public static void main(String[] args) {
-        
-        System.out.println(camelCase("camelCase"));
+
+        char[] letters = {'a','b','c','d','f'};
+        System.out.println(findMissingLetter(letters));
     }
 
-    /* https://www.codewars.com/kata/5208f99aee097e6552000148/train/java */
-    public static String camelCase(String input) {
+    /* https://www.codewars.com/kata/5839edaa6754d6fec10000a2/train/java */
+    public static char findMissingLetter(char[] array) {
         
+        for(int i = 0; i < array.length - 1; i++) {
+            if ((int)array[i] + 1 != (int)array[i + 1]) {
+                return (char)((int)(array[i]) + 1);
+            }
+        }
+
+        return (char)((int)array[array.length - 2] + 1);
+    }
+
+    /* https://www.codewars.com/kata/5208f99aee097e6552000148/train/java 
+    public static String camelCase(String input) {
+
         String result = "";
 
         for(int i = 0; i < input.length(); i++) {
