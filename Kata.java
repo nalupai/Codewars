@@ -2,10 +2,26 @@ public class Kata {
 
     public static void main(String[] args) {
         
-        System.out.println(validParentheses(")(xoxoxoxo))XOXO"));
+        System.out.println(camelCase("camelCase"));
     }
 
-    /* https://www.codewars.com/kata/52774a314c2333f0a7000688/train/java */
+    /* https://www.codewars.com/kata/5208f99aee097e6552000148/train/java */
+    public static String camelCase(String input) {
+        
+        String result = "";
+
+        for(int i = 0; i < input.length(); i++) {
+            if (("" + input.charAt(i)).equals(("" + input.charAt(i)).toUpperCase())) {
+                result += " " + input.charAt(i);
+            } else {
+                result += input.charAt(i);
+            }
+        }
+
+        return result;
+    }
+
+    /* https://www.codewars.com/kata/52774a314c2333f0a7000688/train/java 
     public static boolean validParentheses(String parens) {
         
         String onlyParens = "";
