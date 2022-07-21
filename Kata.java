@@ -2,11 +2,27 @@ public class Kata {
 
     public static void main(String[] args) {
 
-        char[] letters = {'a','b','c','d','f'};
-        System.out.println(findMissingLetter(letters));
+        System.out.println(alphanumeric("abc"));
     }
 
-    /* https://www.codewars.com/kata/5839edaa6754d6fec10000a2/train/java */
+    /* https://www.codewars.com/kata/526dbd6c8c0eb53254000110/train/java */
+    public static boolean alphanumeric(String s) {
+
+        if (s.equals("")) {
+            return false;
+        }
+
+        String valid = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        for(int i = 0; i < s.length(); i++) {
+            if (!valid.contains("" + s.charAt(i))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /* https://www.codewars.com/kata/5839edaa6754d6fec10000a2/train/java 
     public static char findMissingLetter(char[] array) {
         
         for(int i = 0; i < array.length - 1; i++) {
